@@ -42,8 +42,22 @@ async function doActionInternal(action) {
         }
 
         if (!['GET', 'HEAD'].includes(requestOptions.method)) {
-            requestOptions.body = action.body;
+
+            let bodyObj = {};
+
+            try {
+                bodyObj = action.body ? JSON.parse(action.body) : {};
+            } catch (e) {
+                console.error("[HTTP2ROS] Error parsing JSON body:", e);
+            }
+
+            if (action.rosTopic) {
+                bodyObj["topic"] = action.rosTopic;
+            }
+
+            requestOptions.body = JSON.stringify(bodyObj);
         }
+
 
         if (action.authUser || action.authPw) {
             let authStringBase64 = util.stringToBase64(`${action.authUser}:${action.authPw}`);
