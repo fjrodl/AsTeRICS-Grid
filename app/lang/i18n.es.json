@@ -1114,6 +1114,7 @@
   "httpMethod": "Método HTTP",
   "httpBodyData": "Cuerpo HTTP (datos)",
   "GridActionHTTP": "Acción HTTP",
+  "GridActionHTTP2ROS": "Acción HTTP2ROS",
   "restActionFailed": "¡La Acción HTTP ha fallado! Razón: {0}",
   "httpAuthUser": "Usuario para la autentificación HTTP",
   "httpAuthPw": "Contraseña para la autentificación HTTP",

@@ -22,6 +22,7 @@ import { GridActionPredefined } from './GridActionPredefined';
 import { GridActionMatrix } from './GridActionMatrix';
 import { GridActionPodcast } from './GridActionPodcast';
 import { GridActionVocabLevelToggle } from './GridActionVocabLevelToggle';
+import { GridActionHTTP2ROS } from './GridActionHTTP2ROS.js';
 
 class GridElement extends Model({
     id: String,
@@ -86,6 +87,7 @@ class GridElement extends Model({
             GridActionChangeLang,
             GridActionOpenWebpage,
             GridActionHTTP,
+            GridActionHTTP2ROS,
             GridActionUART,
             GridActionSystem,
             GridActionPredefined,

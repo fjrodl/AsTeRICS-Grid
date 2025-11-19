@@ -60,6 +60,7 @@
     import EditAudioAction from "./editActionsSub/editAudioAction.vue";
     import EditWordFormAction from "./editActionsSub/editWordFormAction.vue";
     import EditHttpAction from "./editActionsSub/editHttpAction.vue";
+    import EditHttp2ROSAction from "./editActionsSub/editHttp2ROSAction.vue";
     import EditPredefinedAction from './editActionsSub/editPredefinedAction.vue';
     import EditAction from './editAction.vue';
 
@@ -83,7 +84,8 @@
             Accordion,
             EditAreAction,
             EditOpenHabAction,
-            EditHttpAction
+            EditHttpAction,
+            EditHttp2ROSAction
         },
         methods: {
             deleteAction (action) {

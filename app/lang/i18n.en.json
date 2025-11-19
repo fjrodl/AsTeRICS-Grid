@@ -1113,6 +1113,7 @@
   "toggleInCollectionElementIfAddedMultipleTimes": "Toggle in collection element if added multiple times",
   "httpMethod": "HTTP method",
   "httpBodyData": "HTTP body (data)",
+  "GridActionHTTP2ROS": "HTTP2ROS Action",
   "GridActionHTTP": "HTTP action",
   "restActionFailed": "HTTP action failed! Reason: {0}",
   "httpAuthUser": "HTTP Authentication User",

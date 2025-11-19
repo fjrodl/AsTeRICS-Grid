@@ -34,6 +34,7 @@ import { GridActionWebradio } from '../model/GridActionWebradio';
 import { matrixAppService } from './matrixMessenger/matrixAppService';
 import { podcastService } from './podcastService';
 import { GridActionVocabLevelToggle } from '../model/GridActionVocabLevelToggle';
+import { http2rosService } from './http2rosService';
 
 let actionService = {};
 
@@ -239,6 +240,9 @@ async function doAction(gridElement, action, options = {}) {
             log.debug('action HTTP');
             return httpService.doAction(action);
             break;
+        case "GridActionHTTP2ROS":
+            log.debug('action HTTP2ROS');
+            return http2rosService.doAction(action);
         case 'GridActionPredict':
             log.debug('action predict');
             predictionService.predict(i18nService.getTranslation(gridElement.label), action.dictionaryKey);

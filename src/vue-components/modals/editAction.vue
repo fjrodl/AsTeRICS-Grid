@@ -82,7 +82,11 @@
         <edit-open-hab-action :action="action" :grid-data="gridData"/>
     </div>
     <div v-if="action.modelName === 'GridActionHTTP'">
-      <edit-http-action :action="action"/>
+        <edit-http-action :action="action"/>
+    </div>
+    <div v-if="action.modelName === 'GridActionHTTP2ROS'">
+        <!-- <p>DEBUG: loading component...</p> -->
+        <edit-http2-r-o-s-action :action="action"/>
     </div>
     <div v-if="action.modelName === 'GridActionPredefined'">
         <edit-predefined-action :action="action" :grid-data="gridData" v-on="$listeners"/>
@@ -349,7 +353,7 @@
     import EditPredefinedAction from './editActionsSub/editPredefinedAction.vue';
     import EditMatrixAction from './editActionsSub/editMatrixAction.vue';
     import EditPodcastAction from './editActionsSub/editPodcastAction.vue';
-
+    import EditHttp2ROSAction from "./editActionsSub/editHttp2ROSAction.vue";
     export default {
         props: ['action', 'grids', 'gridData', 'gridElement'],
         data: function () {
@@ -385,7 +389,8 @@
             Accordion,
             EditAreAction,
             EditOpenHabAction,
-            EditHttpAction
+            EditHttpAction,
+            EditHttp2ROSAction
         },
         methods: {
             getCurrentSpeakLang(action) {
