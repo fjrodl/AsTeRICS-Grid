@@ -24,6 +24,7 @@ import {MapCache} from "../util/MapCache.js";
 import { liveElementService } from './liveElementService';
 import { MetaData } from '../model/MetaData';
 import { GridData } from '../model/GridData';
+import { GridActionHTTP2ROS } from '../model/GridActionHTTP2ROS.js';
 
 let collectElementService = {};
 
@@ -582,7 +583,9 @@ $(window).on(constants.ELEMENT_EVENT_ID, function (event, element) {
         GridActionSpeakCustom.getModelName(),
         GridActionNavigate.getModelName(),
         GridActionAudio.getModelName(),
-        GridActionWordForm.getModelName()
+        GridActionWordForm.getModelName(),
+        GridActionHTTP2ROS.getModelName()
+
     ];
     let ignoreActions = GridElement.getActionTypeModelNames().filter((e) => !notIgonoreActions.includes(e));
     if (getActionTypes(element).some((type) => ignoreActions.includes(type))) {
