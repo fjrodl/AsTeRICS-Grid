@@ -50,7 +50,7 @@ GridActionHTTP2ROS.defaults({
     isLiveAction: false,
 
     // valores por defecto ROS
-    bridgeUrl: 'http://localhost:8000/ros2/publish',
+    bridgeUrl: `http://${window.location.hostname}:8000/ros2/publish`,
     rosTopic: '',
     rosMsgType: ''
 });

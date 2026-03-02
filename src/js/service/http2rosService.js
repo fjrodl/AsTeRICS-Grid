@@ -9,7 +9,7 @@ let MIN_PAUSE_TIME_MS = 500;
 let cachePromises = {};
 let lastTimes = {};
 
-http2rosService.doAction = async function(action) {
+http2rosService.doAction = async function (action) {
     action = JSON.parse(JSON.stringify(action));
     action.id = '';
 
@@ -25,8 +25,22 @@ http2rosService.doAction = async function(action) {
     return cachePromises[actionString];
 };
 
+/**
+ * Replaces 'localhost' or '127.0.0.1' in a URL with the current browser hostname.
+ * This allows actions created on localhost to work when accessed from a different IP (e.g. Tailscale).
+ */
+function resolveHost(url) {
+    if (!url) return url;
+    let currentHost = window.location.hostname;
+    if (currentHost && currentHost !== 'localhost' && currentHost !== '127.0.0.1') {
+        return url.replace(/\/\/(localhost|127\.0\.0\.1)([:\/])/, `//${currentHost}$2`);
+    }
+    return url;
+}
+
 async function doActionInternal(action) {
     try {
+        action.restUrl = resolveHost(action.restUrl);
         log.debug(`[HTTP2ROS] url: ${action.restUrl}, body: ${action.body}, method: ${action.method}, contenttype: ${action.contentType}`);
 
         let requestOptions = {
